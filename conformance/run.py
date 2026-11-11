@@ -7,7 +7,7 @@
     REFLOWPDF_API_KEY=rpdf_... python3 run.py --engine reflowpdf gcpm
 
 A reftest is an HTML file with <link rel="match" href="..."> or <link rel="mismatch" href="...">.
-The test and each reference are printed to PDF by the engine, rasterized by pdftoppm at 96 dpi, and
+The test and each reference are printed to PDF by the engine, rasterised by pdftoppm at 96 dpi, and
 the page images are compared by reflowpdf-compare (compare/). The test passes when it matches one of
 its match references and differs from all of its mismatch references.
 
@@ -313,7 +313,7 @@ class Runner:
                 raise RuntimeError(f"API {e.code}: {e.read().decode(errors='replace')[:200]}")
 
     def pages(self, path, paged):
-        """Print one file and rasterize it: the paths of its page images, in order."""
+        """Print one file and rasterise it: the paths of its page images, in order."""
         tag = uuid.uuid4().hex
         pdf = os.path.join(self.work, tag + ".pdf")
         prefix = os.path.join(self.work, tag)
