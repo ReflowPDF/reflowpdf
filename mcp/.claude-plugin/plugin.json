@@ -1,0 +1,14 @@
+{
+  "name": "reflowpdf",
+  "version": "1.0.0",
+  "description": "Paged PDFs from HTML or templates — invoices, reports, contracts, CVs — with an edit link to the ReflowPDF editor. Remote MCP server plus a skill that shows Claude how to use it.",
+  "author": {
+    "name": "INSEAW LLC",
+    "email": "hello@reflowpdf.com",
+    "url": "https://reflowpdf.com"
+  },
+  "homepage": "https://reflowpdf.com/mcp",
+  "repository": "https://github.com/ReflowPDF/reflowpdf",
+  "license": "MIT",
+  "keywords": ["pdf", "documents", "invoice", "templates", "print", "mcp"]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "reflowpdf": {
+      "type": "http",
+      "url": "https://app.reflowpdf.com/mcp"
+    }
+  }
+}

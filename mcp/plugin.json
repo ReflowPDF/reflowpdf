@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "reflowpdf",
+  "version": "1.0.0",
+  "description": "Print HTML and CSS, or ready document templates, as paged PDFs, with an edit link to the ReflowPDF editor for each document.",
+  "author": {
+    "name": "INSEAW LLC",
+    "email": "hello@reflowpdf.com",
+    "url": "https://reflowpdf.com"
+  },
+  "homepage": "https://reflowpdf.com/mcp",
+  "repository": "https://github.com/ReflowPDF/reflowpdf",
+  "license": "MIT",
+  "keywords": ["pdf", "html-to-pdf", "documents", "invoice", "report", "templates", "print", "pdf-ua", "accessibility", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "ReflowPDF",
+        "shortDescription": "Paged PDFs you can edit",
+        "developerName": "INSEAW LLC",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://reflowpdf.com/mcp",
+        "supportURL": "https://reflowpdf.com/docs/ai-assistants",
+        "privacyPolicyURL": "https://reflowpdf.com/privacy",
+        "termsOfServiceURL": "https://reflowpdf.com/terms",
+        "brandColor": "#A8792B",
+        "brandColorDark": "#E0A93E",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}

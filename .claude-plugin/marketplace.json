@@ -1,0 +1,14 @@
+{
+  "name": "reflowpdf",
+  "owner": {
+    "name": "INSEAW LLC",
+    "email": "hello@reflowpdf.com"
+  },
+  "plugins": [
+    {
+      "name": "reflowpdf",
+      "source": "./mcp",
+      "description": "Paged PDFs from HTML or templates, with an edit link to the ReflowPDF editor."
+    }
+  ]
+}
