@@ -295,7 +295,9 @@ class Runner:
         data = json.dumps(body).encode()
         for attempt in range(6):
             req = urllib.request.Request(API, data=data, method="POST", headers={
-                "Authorization": "Bearer " + self.key, "Content-Type": "application/json", "Accept": "application/pdf"})
+                "Authorization": "Bearer " + self.key, "Content-Type": "application/json", "Accept": "application/pdf",
+                # Cloudflare in front of the API refuses urllib's default User-Agent (error 1010).
+                "User-Agent": "reflowpdf-conformance-run"})
             try:
                 with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                     mark = r.headers.get("X-ReflowPDF-Mark", "none")
