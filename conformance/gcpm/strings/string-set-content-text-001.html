@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: content(text) is the same as content()</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#content-function">
+<link rel="match" href="string-set-content-text-001-ref.html">
+<meta name="assert" content="content(text) copies the element text; the running head reads the h1 text.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+h1 { string-set: hdr content(text); }
+@page { @top-center { content: string(hdr); } }
+</style>
+<h1>AB</h1>

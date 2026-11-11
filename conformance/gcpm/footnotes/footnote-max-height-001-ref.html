@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Reference: max-height on the footnote area limits it; the rest of the body continues on the next page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+</style>
+<p>X1</p>
+<div style="height:60px"></div>
+<p>AAAAAAAAAAA</p><p>BBBBBBBBBBB</p>
+<p class="pb">Y</p>
+<div style="height:60px"></div>
+<p>CCCCCCCCCCC</p><p>DDDDDDDDDDD</p>

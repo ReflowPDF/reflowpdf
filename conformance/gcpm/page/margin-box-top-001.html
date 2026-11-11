@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: top-left / top-center / top-right boxes with explicit alignment</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#margin-boxes">
+<link rel="match" href="margin-box-top-001-ref.html">
+<meta name="assert" content="The top-left box starts at the left edge of the page area, the top-center box is centered on the page, the top-right box ends at the right edge of the page area; vertical-align: top puts the glyph at the top of the margin.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page {
+       @top-left { content: "X"; text-align: left; vertical-align: top; width: 60px; }
+       @top-center { content: "X"; text-align: center; vertical-align: top; width: 60px; }
+       @top-right { content: "X"; text-align: right; vertical-align: top; width: 60px; }
+     }
+</style>
+<p>M</p>

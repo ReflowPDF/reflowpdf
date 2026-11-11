@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: :left and :right select verso and recto pages (ltr: first page is right)</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#left-right-first">
+<link rel="match" href="page-selector-left-right-001-ref.html">
+<meta name="assert" content="In a left-to-right document the first page is a right page; :left matches page 2, :right matches pages 1 and 3.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page :left { @top-center { content: "XXX"; } }
+@page :right { @top-center { content: "X"; } }
+</style>
+<p>A</p>
+<p class="pb">B</p>
+<p class="pb">C</p>

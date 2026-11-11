@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Reference: a running element is the containing block of its absolutely positioned descendants</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 400px 300px; margin: 0; font: 16px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { margin: 60px 80px; font: 16px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.a { position: absolute; }
+</style>
+<p>M</p>
+<div class="a" style="left:100px;top:0;width:200px;height:20px;background:yellow"></div>
+<div class="a" style="left:280px;top:0;width:20px;height:20px;background:red"></div>
+<div class="a" style="left:100px;top:0;width:20px;height:20px;background:green"></div>

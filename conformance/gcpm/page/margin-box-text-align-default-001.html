@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: default text-align of top-left is left, of top-right is right, of top-center is center</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#margin-text-alignment">
+<link rel="match" href="margin-box-text-align-default-001-ref.html">
+<meta name="assert" content="Without an explicit text-align, @top-left aligns its content to the start of the box, @top-right to the end, @top-center to the center. The boxes are 60px wide, so that the alignment is visible in an engine that would otherwise size them to their content.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { @top-left { content: "X"; vertical-align: top; width: 60px; } @top-center { content: "X"; vertical-align: top; width: 60px; } @top-right { content: "X"; vertical-align: top; width: 60px; } }
+</style>
+<p>M</p>

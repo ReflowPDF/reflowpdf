@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: target-counter(url(#id), page) with a literal url (lower-roman)</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#target-counter">
+<link rel="match" href="target-counter-url-001-roman-ref.html">
+<meta name="assert" content="A literal fragment url resolves to the element with that id; the page number is iii. The value is in lower-roman, so that a wrong value differs in length: in Ahem every digit is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+a::after { content: target-counter(url(#t), page, lower-roman); }
+</style>
+<p>P<a href="#t"></a></p>
+<p class="pb">B</p>
+<p class="pb" id="t">T</p>

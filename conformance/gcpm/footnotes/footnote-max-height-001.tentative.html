@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: max-height on the footnote area limits it; the rest of the body continues on the next page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#footnote-area">
+<link rel="match" href="footnote-max-height-001-ref.html">
+<meta name="assert" content="css-gcpm-3 §2.4.2: max-height &quot;limits the size of this area&quot;, so @footnote { max-height: 40px } caps the area at two lines although four lines of body would fit below the call. The specification does not say where the rest of the body goes (§2.8: &quot;We need an algorithm for laying out footnotes&quot;); this test expects lines 3 and 4 to continue in the equally capped area of the next page, which the paragraph after the call opens.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.fn { float: footnote; }
+::footnote-call { content: counter(footnote); vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: none; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; max-height: 40px; } }
+</style>
+<p>X<span class="fn">AAAAAAAAAAA BBBBBBBBBBB CCCCCCCCCCC DDDDDDDDDDD</span></p>
+<p class="pb">Y</p>

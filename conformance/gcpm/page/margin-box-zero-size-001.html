@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: a zero-size page-margin box still shows its overflowing content</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#margin-dimension">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#overflow-properties">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#text-align-property">
+<link rel="match" href="margin-box-zero-size-001-ref.html">
+<meta name="assert" content="A page-margin box with width: 0 (or height: 0) and overflow: visible paints no box but its content overflows it: text-align cannot fit an overflowing line, so it is start-aligned (css-text-3 §6.1) from the box's start edge; content taller than a zero-height box overflows its bottom, never its top (table-cell vertical-align, CSS 2.1 §17.5.3).">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 400px 300px; margin: 60px 80px; font: 16px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 16px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+@page {
+  @top-left { content: "xxx"; width: 0; height: 40px; overflow: visible; text-align: left; vertical-align: top; }
+  @top-center { content: "xx"; width: 0; height: 40px; overflow: visible; text-align: center; vertical-align: top; }
+  @top-right { content: "xxx"; width: 0; height: 40px; overflow: visible; text-align: right; vertical-align: top; }
+  @left-middle { content: "x"; height: 0; overflow: visible; vertical-align: middle; }
+  @bottom-left { content: "xxx"; width: 0; height: 0; overflow: visible; text-align: left; vertical-align: middle; }
+}
+</style>
+<p>M</p>

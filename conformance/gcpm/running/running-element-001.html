@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: position: running() removes the element from the flow and element() places it in the margin box</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#running-elements">
+<link rel="match" href="running-element-001-ref.html">
+<meta name="assert" content="The div with position: running(hdr) does not occupy space in the page area; element(hdr) renders it in the top-center margin box of every page.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.hdr { position: running(hdr); text-align: center; }
+@page { @top-center { content: element(hdr); } }
+</style>
+<div class="hdr">H</div>
+<p>A</p>
+<p class="pb">B</p>

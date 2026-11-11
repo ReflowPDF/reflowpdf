@@ -14,9 +14,10 @@ The engine and the editor are closed source. This repository holds the parts tha
 | Folder | What is in it |
 |---|---|
 | [`mcp/`](mcp) | The ReflowPDF connector for AI assistants (MCP): setup for Claude, ChatGPT, Cursor and VS Code, plugin manifests, MCP Registry entry |
+| [`conformance/`](conformance) | The comparator that judges the engine's reftests, a runner for any HTML-to-PDF engine, and 100 paged-media reftests with results for ReflowPDF, Prince and WeasyPrint |
 
 ## Contact
 
-hello@reflowpdf.com. Security reports: see [SECURITY.md](SECURITY.md).
+hello@reflowpdf.com, or [Discord](https://discord.gg/SnuXFudD25) for questions and help. Security reports: see [SECURITY.md](SECURITY.md).
 
 ReflowPDF is made by INSEAW LLC, South Carolina, and is a member of the [PDF Association](https://pdfa.org).

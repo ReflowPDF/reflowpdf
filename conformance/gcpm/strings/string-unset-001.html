@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: string() of a string never assigned is empty</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#using-named-strings">
+<link rel="match" href="string-unset-001-ref.html">
+<meta name="assert" content="A named string that no element has set yet renders as the empty string: the running head is empty on the page before the first assignment.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+h1 { string-set: hdr content(); }
+@page { @top-center { content: string(hdr); } }
+</style>
+<p>A</p>
+<h1 class="pb">B</h1>

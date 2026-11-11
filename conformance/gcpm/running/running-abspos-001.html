@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: a running element is the containing block of its absolutely positioned descendants</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm-3/#running-elements">
+<link rel="help" href="https://drafts.csswg.org/css-position-3/#position-property">
+<link rel="match" href="running-abspos-001-ref.html">
+<meta name="assert" content="position: running() is a value of position other than static, so the running element is a positioned box and the containing block of its absolutely positioned descendants (css-position-3 §2: &quot;Values other than static make the box a positioned box, and cause it to establish an absolute positioning containing block&quot;): right: 0 / bottom: 0 resolve against the running element's own padding box inside the margin box, not against the page.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 400px 300px; margin: 60px 80px; font: 16px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 16px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+@page { @top-center { content: element(hdr); width: 200px; vertical-align: top; text-align: left; } }
+.hdr { position: running(hdr); height: 20px; background: yellow; }
+.hdr .r { position: absolute; right: 0; top: 0; width: 20px; height: 20px; background: red; }
+.hdr .g { position: absolute; left: 0; bottom: 0; width: 20px; height: 20px; background: green; }
+</style>
+<div class="hdr"><div class="r"></div><div class="g"></div></div>
+<p>M</p>

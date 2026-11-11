@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: break-before: recto inserts a blank page like right in a left-to-right document</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#blank-pseudo">
+<link rel="match" href="page-selector-blank-recto-001-ref.html">
+<meta name="assert" content="In a left-to-right document recto is the right page (css-break-4): break-before: recto on the second block forces an empty left page 2, which :blank selects; page 3 shows the block.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { @top-center { content: "X"; } }
+@page :blank { @top-center { content: "XXX"; } }
+.r { break-before: recto; }
+</style>
+<p>A</p>
+<p class="r">C</p>

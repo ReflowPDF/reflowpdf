@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: a footnote body taller than the space below its call continues on the next page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#footnotes">
+<link rel="match" href="footnote-split-001-ref.html">
+<meta name="assert" content="css-gcpm-3 does not define how a footnote body that does not fit is laid out (§2.8: &quot;We need an algorithm for laying out footnotes&quot;). This test expects the body to be split: of its six lines, five fit in the footnote area below the call line, and the sixth continues at the bottom of the next page; the paragraph after the call no longer fits on page 1 and opens page 2 above the continuation. The marker is suppressed, so that only the split is tested.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.fn { float: footnote; }
+::footnote-call { content: counter(footnote); vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: none; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; } }
+</style>
+<p>X<span class="fn">AAAAAAAAAAA BBBBBBBBBBB CCCCCCCCCCC DDDDDDDDDDD EEEEEEEEEEE FFFFFFFFFFF</span></p>
+<p>Y</p>

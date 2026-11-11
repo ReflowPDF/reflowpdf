@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: :first overrides the default page rule for the same margin box</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#first-pseudo">
+<link rel="match" href="page-selector-first-001-ref.html">
+<meta name="assert" content="The @page :first rule is more specific than the plain @page rule, so its margin-box content replaces (not adds to) the default content on page one only.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { @top-center { content: "X"; } }
+@page :first { @top-center { content: "XXX"; } }
+</style>
+<p>A</p>
+<p class="pb">B</p>
+<p class="pb">C</p>

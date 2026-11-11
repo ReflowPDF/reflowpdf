@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: float: footnote moves the element to the footnote area at the bottom of the page and leaves a call</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#footnotes">
+<link rel="match" href="footnote-basic-001-ref.html">
+<meta name="assert" content="The span becomes a footnote: a call (1) stays inline where the span was; the footnote body is laid out at the bottom of the page area. The footnote marker is suppressed (content: none), so that the test does not depend on where an engine places it; footnote-call-marker-custom-001 shows it.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.fn { float: footnote; }
+::footnote-call { content: counter(footnote); vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: none; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; } }
+</style>
+<p>X<span class="fn">Y</span>Z</p>

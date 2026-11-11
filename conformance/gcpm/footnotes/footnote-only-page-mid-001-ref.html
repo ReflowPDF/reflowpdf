@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Reference: a footnote body longer than a page makes a footnote-only page in the middle of the document</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 15px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 15px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+</style>
+<p>AAAA</p><p>BB1</p>
+<p>a1</p><p>a2</p><p>a3</p><p>a4</p><p>a5</p><p>a6</p>
+<p class="pb">b1</p><p>b2</p><p>b3</p><p>b4</p><p>b5</p><p>b6</p><p>b7</p><p>b8</p>
+<p class="pb">CCCC</p><p>DDDD</p>
+<p>c1</p><p>c2</p><p>c3</p><p>c4</p><p>c5</p><p>c6</p>
+<p class="pb">EEEE</p><p>FFFF</p><p>GGGG</p>

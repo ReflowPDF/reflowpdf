@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: text properties of the margin context style the margin box's text like element text</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#margin-property-list">
+<link rel="match" href="margin-box-inline-style-001-ref.html">
+<meta name="assert" content="css-page-3 Appendix A: letter-spacing, text-transform and text-decoration apply in the margin context, and the margin box's text is laid out and painted like element text: the header pp pp with letter-spacing 1em, text-transform: uppercase and an underline matches a block with the same text and properties. In Ahem the lowercase p is drawn differently from the capital P, so the transform is visible.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { @top-left { content: "pp pp"; letter-spacing: 1em; text-transform: uppercase; text-decoration: underline; vertical-align: bottom; } }
+</style>
+<p>M</p>

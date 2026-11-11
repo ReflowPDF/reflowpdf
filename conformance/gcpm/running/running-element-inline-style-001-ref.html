@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Reference: a running element keeps its inline styles in the margin box</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { margin: 0; }
+body { margin: 40px; }
+.a { position: absolute; width: 20px; height: 20px; }
+</style>
+<p>M</p>
+<div class="a" style="left:130px;top:10px;color:green">H</div><div class="a" style="left:150px;top:10px">K</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: target-text(url, before) copies the ::before text of the target</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#target-text">
+<link rel="match" href="target-text-before-001-ref.html">
+<meta name="assert" content="css-content-3 §6.3: the argument before selects the text of the target's ::before pseudo-element, QQ, not its content TTT. The values differ in length: in Ahem every letter is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+#t::before { content: "QQ"; }
+a::after { content: target-text(attr(href url), before); }
+</style>
+<p>P<a href="#t"></a></p>
+<p class="pb">B</p>
+<p class="pb" id="t">TTT</p>

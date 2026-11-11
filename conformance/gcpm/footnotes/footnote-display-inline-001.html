@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: footnote-display: inline places consecutive footnotes on one line of the footnote area</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#propdef-footnote-display">
+<link rel="match" href="footnote-display-inline-001-ref.html">
+<meta name="assert" content="css-gcpm-3 §2.3: two footnotes with footnote-display: inline are placed in the footnote area as inline elements instead of one block each: the marker and body of the second follow the first on the same line.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.fn { float: footnote; footnote-display: inline; }
+::footnote-call { content: counter(footnote); vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: counter(footnote) " "; list-style-position: inside; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; } }
+</style>
+<p>X<span class="fn">AAA </span>Y<span class="fn">BBB</span></p>

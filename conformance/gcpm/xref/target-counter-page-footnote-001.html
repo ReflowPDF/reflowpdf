@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: target-counter(…, page) reads the page after the footnote area took its place</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#target-counter">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#footnote-area">
+<link rel="match" href="target-counter-page-footnote-001-ref.html">
+<meta name="assert" content="Six lines fill the page area exactly; a footnote called on the fifth line takes the foot of page 1 and pushes the sixth line, the link target, to page 2. The link shows ii (page 2 in lower-roman; Ahem draws every digit as the same square, so the value is told apart by the number of glyphs: ii against the i of a layout without the footnote): the value of the page counter at the target in the laid-out document.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.fn { float: footnote; }
+::footnote-call { content: counter(footnote); vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: counter(footnote) " "; list-style-position: inside; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; } }
+a::after { content: target-counter(attr(href url), page, lower-roman); }
+</style>
+<p>P<a href="#t"></a></p>
+<p>F</p>
+<p>F</p>
+<p>F</p>
+<p>C<span class="fn">N</span></p>
+<p id="t">T</p>

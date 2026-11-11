@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: target-counters() joins nested counters with the separator (lower-roman)</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#target-counters">
+<link rel="match" href="target-counters-001-roman-ref.html">
+<meta name="assert" content="css-content-3 §6.2: the outer div creates sec = 1, the nested div creates a nested sec = 1, and the h2 increments that innermost instance to 2, so target-counters(…, sec, &quot; &quot;, lower-roman) shows i ii, outermost first. The separator is a space and the values are lower-roman, so that the order and a wrong value are visible: in Ahem every digit and &quot;.&quot; is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+div { counter-reset: sec; counter-increment: sec; }
+h2 { counter-increment: sec; }
+a::after { content: target-counters(attr(href url), sec, " ", lower-roman); }
+</style>
+<p>P<a href="#t"></a></p>
+<div>A<div>B<h2 id="t">C</h2></div></div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: element() replaces the margin box content of the default rule</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#running-elements">
+<link rel="match" href="running-element-replaces-page-content-001-ref.html">
+<meta name="assert" content="The :first rule is more specific than the default rule for the same margin box, so on page 1 its element(hdr) replaces the default literal: page 1 shows the running element HHH, page 2 the literal D. The values differ in length: in Ahem every letter is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.hdr { position: running(hdr); text-align: center; }
+@page { @top-center { content: "D"; } }
+@page :first { @top-center { content: element(hdr); } }
+</style>
+<div class="hdr">HHH</div>
+<p>A</p>
+<p class="pb">B</p>

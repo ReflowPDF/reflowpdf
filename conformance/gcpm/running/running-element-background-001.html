@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: a running element paints its own background and border in the margin box</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#running-elements">
+<link rel="match" href="running-element-background-001-ref.html">
+<meta name="assert" content="The running block fills the top-center box width (css-page-3 §5.3.2.2: boxes that are not generated have zero width, so when the middle box is the only one generated it receives all the free space) and paints its green background behind its centered text.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.hdr { position: running(hdr); text-align: center; background: green; }
+@page { @top-center { content: element(hdr); } }
+</style>
+<div class="hdr">H</div>
+<p>M</p>

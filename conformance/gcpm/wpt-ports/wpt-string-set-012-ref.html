@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reference: CSS Test: GCPM string-set to attribute value</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="http://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro">
+<meta name="flags" content="paged">
+<meta name="assert" content="Test checks that a string can be set to the value of an attribute ">
+
+<style>
+@page { size: 8.5in 11in; } /* ReflowPDF port: page size fixed to Letter, so the page count does not depend on the default page size */
+@page { @top-center { content: "Hello, World"; } }
+
+  
+
+ h1 {
+ }
+
+
+</style>
+</head>
+<body>
+<h1 title="Hello, World">Chapter Title</h1>
+<p>Test passes if running head text reads “Hello, World”.
+
+
+
+
+</body>
+</html>

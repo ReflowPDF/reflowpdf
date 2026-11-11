@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: leaders are laid from the end edge backwards so their glyphs align across lines</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#leader-alignment">
+<link rel="match" href="leader-end-aligned-001-ref.html">
+<meta name="assert" content="css-content-3 §2.5.3: the leader string is repeated from the end edge backwards and the start content overlays it. With the pattern "X " (glyph, space) the free cells of the two lines (8 and 7) fill from the end: on the second line the cell next to the start content is the cut pattern (a space), and the X glyphs of both lines sit in the same columns.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.l::after { content: leader("X "); }
+</style>
+<p>AB<span class="l"></span>5</p>
+<p>ABC<span class="l"></span>5</p>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: a child with page: auto stays on its parent's named page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#using-named-pages">
+<link rel="match" href="named-page-inherit-001-ref.html">
+<meta name="assert" content="css-page-3 §8.1: the page property does not inherit, but the used value of page: auto is the value specified on the nearest ancestor with a non-auto value, so a child of a page: ch element is on the same named page and no page break is made between them.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.ch { page: ch; }
+@page ch { @top-center { content: "N"; } }
+</style>
+<div class="ch"><p>A</p><p>B</p></div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: left-top / left-middle / left-bottom and right-* boxes with explicit alignment</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#margin-boxes">
+<link rel="match" href="margin-box-sides-001-ref.html">
+<meta name="assert" content="The side boxes occupy the left and right page margins beside the page area: -top boxes start at the top of the page area, -middle boxes are centered on it, -bottom boxes end at its bottom.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page {
+       @left-top { content: "X"; text-align: center; vertical-align: top; }
+       @left-middle { content: "X"; text-align: center; vertical-align: middle; }
+       @left-bottom { content: "X"; text-align: center; vertical-align: bottom; }
+       @right-top { content: "X"; text-align: center; vertical-align: top; }
+       @right-middle { content: "X"; text-align: center; vertical-align: middle; }
+       @right-bottom { content: "X"; text-align: center; vertical-align: bottom; }
+     }
+</style>
+<p>M</p>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: a @page geometry that leaves no page area is discarded</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#page-model">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#page-size-prop">
+<link rel="match" href="page-area-empty-001-ref.html">
+<meta name="assert" content="Margins that leave no page area (here 60px top and bottom on a 100px page) do not describe a page: the rule's geometry (size and margins) is discarded and the document prints on the default page box, exactly as if the rule were absent. css-page-3 does not define this case; a page area of zero or negative size is not a page.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 200px 100px; margin: 60px 30px; }
+html, body { margin: 0; padding: 0; }
+body { font: 16px/1 Ahem; color: black; }
+p { margin: 0; }
+</style>
+<p>MMMM</p>
+<div style="width: 40px; height: 40px; background: green"></div>

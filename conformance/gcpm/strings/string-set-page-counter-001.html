@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: counter(page) inside string-set is the page of the element</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#setting-named-strings-the-string-set-pro">
+<link rel="match" href="string-set-page-counter-001-ref.html">
+<meta name="assert" content="string-set: hdr counter(page, lower-roman) on the h1 of page 2 stores ii, the value when the h1 is laid out; the running head reads ii on pages 2 and 3 (not iii on page 3), and is empty on page 1.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+h1 { string-set: hdr counter(page, lower-roman); }
+@page { @top-center { content: string(hdr); } }
+</style>
+<p>A</p>
+<h1 class="pb">B</h1>
+<p class="pb">C</p>

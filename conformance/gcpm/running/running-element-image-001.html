@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: a running element carries its replaced content into the margin box</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#running-elements">
+<link rel="match" href="running-element-image-001-ref.html">
+<meta name="assert" content="The running element contains an image; element() renders the image (a 20x20 green square) in the top-center box, centered, followed by its text.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.hdr { position: running(hdr); text-align: center; }
+@page { @top-center { content: element(hdr); } }
+img { vertical-align: bottom; }
+</style>
+<div class="hdr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAGUlEQVR42mNgaGAgH41qHtU8qnlU88BqBgCwqMgB0/maVgAAAABJRU5ErkJggg==" width="20" height="20">K</div>
+<p>M</p>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Reference: element() replaces the margin box content of the default rule</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 0 40px; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.sheet + .sheet { break-before: page; }
+.hdr, .ftr { height: 40px; line-height: 40px; text-align: center; }
+.area { height: 120px; }
+</style>
+<div class="sheet"><div class="hdr">HHH</div><div class="area"><p>A</p></div></div>
+<div class="sheet"><div class="hdr">D</div><div class="area"><p>B</p></div></div>

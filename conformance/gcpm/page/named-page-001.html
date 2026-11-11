@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: page: name selects a named @page rule for the element's page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#using-named-pages">
+<link rel="match" href="named-page-001-ref.html">
+<meta name="assert" content="The block with page: ch is laid out on a page matched by @page ch, whose margin box replaces the default one for that page only.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { @top-center { content: "X"; } }
+@page ch { @top-center { content: "XXX"; } }
+.ch { page: ch; }
+</style>
+<p>A</p>
+<p class="pb ch">B</p>
+<p class="pb">C</p>

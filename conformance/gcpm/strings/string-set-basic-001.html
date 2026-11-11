@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: string-set + string() puts an element's text in the running head and it persists on later pages</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#setting-named-strings-the-string-set-pro">
+<link rel="match" href="string-set-basic-001-ref.html">
+<meta name="assert" content="string-set: hdr content() copies the h1 text into the named string; string(hdr) shows it on the page of the h1 and, unchanged, on the following pages.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+h1 { string-set: hdr content(); }
+@page { @top-center { content: string(hdr); } }
+</style>
+<h1>A</h1>
+<p class="pb">B</p>
+<p class="pb">C</p>

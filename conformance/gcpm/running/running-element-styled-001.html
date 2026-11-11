@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: a running element keeps its own styles</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#running-elements">
+<link rel="match" href="running-element-styled-001-ref.html">
+<meta name="assert" content="The running element is rendered with its own color inside the margin box.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.hdr { position: running(hdr); color: green; text-align: center; }
+@page { @top-center { content: element(hdr); } }
+</style>
+<div class="hdr">H</div>
+<p>A</p>

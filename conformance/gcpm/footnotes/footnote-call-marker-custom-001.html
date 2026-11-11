@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: ::footnote-call and ::footnote-marker take author content</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#footnote-call">
+<link rel="match" href="footnote-call-marker-custom-001-ref.html">
+<meta name="assert" content="css-gcpm-3 §2.6 and §2.7: content on ::footnote-call and ::footnote-marker replaces the counter: the call reads ** and the marker ** followed by a space, not the default number 1. The values differ in length: in Ahem every letter is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.fn { float: footnote; }
+::footnote-call { content: "**"; vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: "** "; list-style-position: inside; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; } }
+</style>
+<p>X<span class="fn">Y</span>Z</p>

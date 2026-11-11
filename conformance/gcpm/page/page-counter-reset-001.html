@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: counter-reset: page in the page context restarts page numbering</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#page-based-counters">
+<link rel="match" href="page-counter-reset-001-ref.html">
+<meta name="assert" content="A counter-reset of the page counter in the page context restarts numbering; the first page after the reset shows the reset value plus the implicit increment (CSS 2.1 §12.4: an element that both resets and increments a counter resets it first): a reset to 7 on :first gives 8, then 9 and 10, shown in lower-roman (viii, ix, x) so that a wrong value differs in length: in Ahem every digit is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page :first { counter-reset: page 7; }
+@page { @bottom-center { content: counter(page, lower-roman); } }
+</style>
+<p>A</p>
+<p class="pb">B</p>
+<p class="pb">C</p>

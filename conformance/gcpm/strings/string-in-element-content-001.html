@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: string() in element content copies the current value of the named string</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#using-named-strings">
+<link rel="match" href="string-in-element-content-001-ref.html">
+<meta name="assert" content="string(hdr) in a ::after of an element renders the value the named string has at that point in the document: the h1 set it to A, so the paragraph reads BA.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+h1 { string-set: hdr content(); }
+p::after { content: string(hdr); }
+</style>
+<h1>A</h1>
+<p>B</p>

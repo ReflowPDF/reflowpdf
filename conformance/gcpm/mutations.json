@@ -1,0 +1,1389 @@
+[
+ {
+  "test": "page/page-selector-first-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :first { @top-center { content: \"XXX\"; } }",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/page-selector-left-right-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :left",
+    "@page :tmp"
+   ],
+   [
+    "@page :right",
+    "@page :left"
+   ],
+   [
+    "@page :tmp",
+    "@page :right"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/page-selector-blank-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :blank { @top-center { content: \"XXX\"; } }",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/page-selector-blank-recto-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :blank { @top-center { content: \"XXX\"; } }",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/named-page-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page ch { @top-center { content: \"XXX\"; } }",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/margin-box-inline-style-001",
+  "target": "test",
+  "edits": [
+   [
+    "text-transform: uppercase; ",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/page-counter-001",
+  "target": "test",
+  "edits": [
+   [
+    "counter(page, lower-roman)",
+    "counter(pages, lower-roman)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/pages-total-001",
+  "target": "test",
+  "edits": [
+   [
+    "counter(pages, lower-roman)",
+    "counter(page, lower-roman)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/page-counter-reset-001",
+  "target": "test",
+  "edits": [
+   [
+    "counter-reset: page 7",
+    "counter-reset: page 8"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-first-001",
+  "target": "test",
+  "edits": [
+   [
+    "string(hdr, first)",
+    "string(hdr, last)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-last-001",
+  "target": "test",
+  "edits": [
+   [
+    "string(hdr, last)",
+    "string(hdr, first)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-set-per-page-001",
+  "target": "test",
+  "edits": [
+   [
+    "h1 { string-set",
+    "h1:first-of-type { string-set"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-set-multiple-001",
+  "target": "test",
+  "edits": [
+   [
+    "b attr(title)",
+    "b content()"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-start-001",
+  "target": "test",
+  "edits": [
+   [
+    "string(hdr, start)",
+    "string(hdr, first)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-start-first-element-001",
+  "target": "test",
+  "edits": [
+   [
+    "string(hdr, start)",
+    "string(hdr, first-except)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "strings/string-set-counter-001",
+  "target": "test",
+  "edits": [
+   [
+    "counter-increment: sec; ",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "running/running-element-first-001",
+  "target": "test",
+  "edits": [
+   [
+    "element(hdr)",
+    "element(hdr, last)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "running/running-element-last-001",
+  "target": "test",
+  "edits": [
+   [
+    "element(hdr, last)",
+    "element(hdr, first)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "running/running-element-replaces-page-content-001",
+  "target": "test",
+  "edits": [
+   [
+    "content: element(hdr)",
+    "content: \"D\""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "xref/target-text-001",
+  "target": "test",
+  "edits": [
+   [
+    "target-text(attr(href url))",
+    "target-text(attr(href url), before)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "xref/target-text-before-001",
+  "target": "test",
+  "edits": [
+   [
+    "target-text(attr(href url), before)",
+    "target-text(attr(href url))"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "xref/target-counter-page-001-roman",
+  "target": "test",
+  "edits": [
+   [
+    "<p>P<a href=\"#t\"></a></p>\n<p class=\"pb\">B</p>",
+    "<p>P<a href=\"#w\"></a></p>\n<p class=\"pb\" id=\"w\">B</p>"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "leaders/leader-dotted-001",
+  "target": "test",
+  "edits": [
+   [
+    "leader(dotted)",
+    "leader(solid)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "leaders/leader-solid-001",
+  "target": "test",
+  "edits": [
+   [
+    "leader(solid)",
+    "leader(dotted)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "leaders/leader-string-001",
+  "target": "test",
+  "edits": [
+   [
+    "leader(\"p\")",
+    "leader(dotted)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "leaders/leader-per-line-001",
+  "target": "test",
+  "edits": [
+   [
+    "leader(dotted)",
+    "leader(solid)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "leaders/leader-wrap-001",
+  "target": "test",
+  "edits": [
+   [
+    "leader(dotted)",
+    "leader(solid)"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "footnotes/footnote-call-marker-custom-001",
+  "target": "test",
+  "edits": [
+   [
+    "::footnote-call { content: \"**\";",
+    "::footnote-call {"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "footnotes/footnote-counter-continues-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page { counter-reset: none; }",
+    "@page { counter-reset: footnote; }"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "footnotes/footnote-counter-reset-page-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page { counter-reset: footnote; }",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "footnotes/footnote-multiple-001",
+  "target": "test",
+  "edits": [
+   [
+    "::footnote-call { content: counter(footnote, lower-roman);",
+    "::footnote-call { content: counter(page, lower-roman);"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "footnotes/footnote-basic-001",
+  "target": "test",
+  "edits": [
+   [
+    ".fn { float: footnote; }",
+    ""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/margin-box-image-001",
+  "target": "test",
+  "edits": [
+   [
+    "url(green-40x20-edge.png)",
+    "\"XX\""
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "test": "page/margin-box-bottom-001",
+  "target": "test",
+  "edits": [
+   [
+    "@bottom-center { content: \"X\"; text-align: center; vertical-align: bottom; }",
+    "@bottom-center { content: \"X\"; text-align: center; vertical-align: top; }"
+   ]
+  ],
+  "note": "bottom-center va top"
+ },
+ {
+  "test": "page/margin-box-corners-001",
+  "target": "test",
+  "edits": [
+   [
+    "@top-left-corner { content: \"X\"; text-align: left;",
+    "@top-left-corner { content: \"X\"; text-align: right;"
+   ]
+  ],
+  "note": "corner text-align"
+ },
+ {
+  "test": "page/margin-box-corners-001",
+  "target": "test",
+  "edits": [
+   [
+    "@bottom-right-corner {",
+    "@bottom-right {"
+   ]
+  ],
+  "note": "bottom-right instead of corner"
+ },
+ {
+  "test": "page/margin-box-image-001",
+  "target": "test",
+  "edits": [
+   [
+    "content: \"A\" url(green-40x20-edge.png) \"B\"",
+    "content: \"A\" \"B\""
+   ]
+  ],
+  "note": "image dropped"
+ },
+ {
+  "test": "page/margin-box-image-001",
+  "target": "reference",
+  "edits": [
+   [
+    "width=\"40\" height=\"20\"",
+    "width=\"20\" height=\"20\""
+   ],
+   [
+    "left:100px\">B",
+    "left:80px\">B"
+   ]
+  ],
+  "note": "image at 20x20"
+ },
+ {
+  "test": "page/margin-box-image-001",
+  "target": "reference",
+  "edits": [
+   [
+    "left:60px;top:16px",
+    "left:60px;top:20px"
+   ],
+   [
+    "<div class=\"a\" style=\"left:40px\">A",
+    "<div class=\"a\" style=\"left:40px;top:24px\">A"
+   ],
+   [
+    "<div class=\"a\" style=\"left:100px\">B",
+    "<div class=\"a\" style=\"left:100px;top:24px\">B"
+   ]
+  ],
+  "note": "image bottom aligned with text bottom instead of baseline"
+ },
+ {
+  "test": "page/margin-box-inherit-page-context-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page { color: green; @top-center { content: \"X\"; } }",
+    "body { color: green; } @page { @top-center { content: \"X\"; } }"
+   ]
+  ],
+  "note": "color from body, not page context"
+ },
+ {
+  "test": "page/margin-box-inline-style-001",
+  "target": "test",
+  "edits": [
+   [
+    "text-transform: uppercase; text-decoration: underline; vertical-align",
+    "text-decoration: underline; vertical-align"
+   ]
+  ],
+  "note": "no text-transform"
+ },
+ {
+  "test": "page/margin-box-inline-style-001",
+  "target": "test",
+  "edits": [
+   [
+    "letter-spacing: 1em; text-transform",
+    "text-transform"
+   ]
+  ],
+  "note": "no letter-spacing"
+ },
+ {
+  "test": "page/margin-box-inline-style-001",
+  "target": "test",
+  "edits": [
+   [
+    "text-decoration: underline; vertical-align",
+    "vertical-align"
+   ]
+  ],
+  "note": "no underline"
+ },
+ {
+  "test": "page/margin-box-sides-001",
+  "target": "test",
+  "edits": [
+   [
+    "@left-middle { content: \"X\"; text-align: center; vertical-align: middle; }",
+    "@left-middle { content: \"X\"; text-align: center; vertical-align: top; }"
+   ]
+  ],
+  "note": "left-middle va top"
+ },
+ {
+  "test": "page/margin-box-top-001",
+  "target": "test",
+  "edits": [
+   [
+    "@top-center { content: \"X\"; text-align: center;",
+    "@top-center { content: \"X\"; text-align: left;"
+   ]
+  ],
+  "note": "top-center left"
+ },
+ {
+  "test": "page/margin-box-vertical-align-default-001",
+  "target": "test",
+  "edits": [
+   [
+    "@top-center { content: \"X\"; }",
+    "@top-center { content: \"X\"; vertical-align: top; }"
+   ]
+  ],
+  "note": "default va top"
+ },
+ {
+  "test": "page/margin-box-zero-size-001",
+  "target": "reference",
+  "edits": [
+   [
+    "left:200px;top:20px\">xx",
+    "left:184px;top:20px\">xx"
+   ]
+  ],
+  "note": "overflowing line centered"
+ },
+ {
+  "test": "page/margin-box-zero-size-001",
+  "target": "reference",
+  "edits": [
+   [
+    "left:32px;top:150px",
+    "left:32px;top:142px"
+   ]
+  ],
+  "note": "zero-height box content centered (overflow above)"
+ },
+ {
+  "test": "page/named-page-001",
+  "target": "test",
+  "edits": [
+   [
+    ".ch { page: ch; }",
+    ".ch { }"
+   ]
+  ],
+  "note": "page property ignored"
+ },
+ {
+  "test": "page/named-page-break-001",
+  "target": "test",
+  "edits": [
+   [
+    ".b { page: two; }",
+    ".b { page: one; }"
+   ]
+  ],
+  "note": "no break"
+ },
+ {
+  "test": "page/page-counter-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page { @bottom-center { content: counter(page, lower-roman); } }",
+    "@page { counter-increment: page 2; @bottom-center { content: counter(page, lower-roman); } }"
+   ]
+  ],
+  "note": "increment 2"
+ },
+ {
+  "test": "page/page-selector-blank-001",
+  "target": "test",
+  "edits": [
+   [
+    ".r { break-before: right; }",
+    ".r { break-before: page; }"
+   ]
+  ],
+  "note": "no blank page"
+ },
+ {
+  "test": "page/page-selector-blank-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :blank {",
+    "@page :right {"
+   ]
+  ],
+  "note": ":right for :blank"
+ },
+ {
+  "test": "page/page-selector-blank-recto-001",
+  "target": "test",
+  "edits": [
+   [
+    ".r { break-before: recto; }",
+    ".r { break-before: verso; }"
+   ]
+  ],
+  "note": "verso for recto"
+ },
+ {
+  "test": "page/page-selector-first-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :first {",
+    "@page :left {"
+   ]
+  ],
+  "note": ":left for :first"
+ },
+ {
+  "test": "page/page-selector-left-right-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :left {",
+    "@page :TMP {"
+   ],
+   [
+    "@page :right {",
+    "@page :left {"
+   ],
+   [
+    "@page :TMP {",
+    "@page :right {"
+   ]
+  ],
+  "note": ":left/:right swapped"
+ },
+ {
+  "test": "page/named-page-inherit-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div><p>A</p><p>B</p></div>",
+    "<div><p>A</p><p class=\"pb\">B</p></div>"
+   ]
+  ],
+  "note": "child breaks to a new page"
+ },
+ {
+  "test": "strings/string-first-001",
+  "target": "test",
+  "edits": [
+   [
+    "string(hdr, first)",
+    "string(hdr, start)"
+   ]
+  ],
+  "note": "start for first"
+ },
+ {
+  "test": "strings/string-first-except-001",
+  "target": "test",
+  "edits": [
+   [
+    "first-except",
+    "first"
+   ]
+  ],
+  "note": "first for first-except"
+ },
+ {
+  "test": "strings/string-in-element-content-001",
+  "target": "test",
+  "edits": [
+   [
+    "p::after { content: string(hdr); }",
+    "p::after { content: \"\"; }"
+   ]
+  ],
+  "note": "string() empty"
+ },
+ {
+  "test": "strings/string-set-attr-001",
+  "target": "test",
+  "edits": [
+   [
+    "attr(data-x)",
+    "content()"
+   ]
+  ],
+  "note": "content for attr"
+ },
+ {
+  "test": "strings/string-set-content-after-001",
+  "target": "test",
+  "edits": [
+   [
+    "content(after)",
+    "content(before)"
+   ]
+  ],
+  "note": "before for after"
+ },
+ {
+  "test": "strings/string-set-content-after-001",
+  "target": "test",
+  "edits": [
+   [
+    "content(after)",
+    "content()"
+   ]
+  ],
+  "note": "text for after"
+ },
+ {
+  "test": "strings/string-set-content-before-001",
+  "target": "test",
+  "edits": [
+   [
+    "content(before)",
+    "content(text)"
+   ]
+  ],
+  "note": "text for before"
+ },
+ {
+  "test": "strings/string-set-content-first-letter-001",
+  "target": "test",
+  "edits": [
+   [
+    "content(first-letter)",
+    "content()"
+   ]
+  ],
+  "note": "text for first-letter"
+ },
+ {
+  "test": "strings/string-set-content-text-001",
+  "target": "test",
+  "edits": [
+   [
+    "content(text)",
+    "content(before)"
+   ]
+  ],
+  "note": "before for text"
+ },
+ {
+  "test": "strings/string-set-counter-001",
+  "target": "test",
+  "edits": [
+   [
+    "h1 { counter-increment: sec; string-set",
+    "h1 { string-set"
+   ]
+  ],
+  "note": "counter not incremented"
+ },
+ {
+  "test": "running/running-element-001",
+  "target": "test",
+  "edits": [
+   [
+    ".hdr { position: running(hdr); text-align: center; }",
+    ".hdr { text-align: center; }"
+   ]
+  ],
+  "note": "not running"
+ },
+ {
+  "test": "running/running-element-background-001",
+  "target": "reference",
+  "edits": [
+   [
+    "left:40px;top:10px;width:220px",
+    "left:140px;top:10px;width:20px"
+   ]
+  ],
+  "note": "background only behind text"
+ },
+ {
+  "test": "running/running-element-block-children-001",
+  "target": "test",
+  "edits": [
+   [
+    "<p>H</p><p>K</p></div>",
+    "<p>H</p></div>"
+   ]
+  ],
+  "note": "second child lost"
+ },
+ {
+  "test": "running/running-element-first-001",
+  "target": "test",
+  "edits": [
+   [
+    "content: element(hdr); }",
+    "content: element(hdr, last); }"
+   ]
+  ],
+  "note": "last for first"
+ },
+ {
+  "test": "running/running-element-image-001",
+  "target": "test",
+  "edits": [
+   [
+    "<div class=\"hdr\"><img",
+    "<div class=\"hdr\"><img style=\"display:none\""
+   ]
+  ],
+  "note": "image dropped"
+ },
+ {
+  "test": "running/running-element-inline-style-001",
+  "target": "test",
+  "edits": [
+   [
+    "<span style=\"color: green\">H</span>",
+    "<span>H</span>"
+   ]
+  ],
+  "note": "inline style lost"
+ },
+ {
+  "test": "running/running-element-replaces-page-content-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page :first { @top-center { content: element(hdr); } }",
+    "@page :left { @top-center { content: element(hdr); } }"
+   ]
+  ],
+  "note": ":left for :first"
+ },
+ {
+  "test": "running/running-element-styled-001",
+  "target": "test",
+  "edits": [
+   [
+    ".hdr { position: running(hdr); color: green;",
+    ".hdr { position: running(hdr);"
+   ]
+  ],
+  "note": "color lost"
+ },
+ {
+  "test": "running/running-abspos-001",
+  "target": "reference",
+  "edits": [
+   [
+    "left:280px;top:0;width:20px;height:20px;background:red",
+    "left:300px;top:0;width:20px;height:20px;background:red"
+   ]
+  ],
+  "note": "red box against wider box"
+ },
+ {
+  "test": "footnotes/footnote-area-border-001",
+  "target": "test",
+  "edits": [
+   [
+    "border-top: 20px solid green",
+    "border-top: 10px solid green"
+   ]
+  ],
+  "note": "thinner border"
+ },
+ {
+  "test": "footnotes/footnote-area-bottom-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div style=\"height:60px\"></div>",
+    ""
+   ]
+  ],
+  "note": "area right after text"
+ },
+ {
+  "test": "footnotes/footnote-basic-001",
+  "target": "test",
+  "edits": [
+   [
+    ".fn { float: footnote; }",
+    ".fn { }"
+   ]
+  ],
+  "note": "no footnote"
+ },
+ {
+  "test": "footnotes/footnote-call-marker-custom-001",
+  "target": "test",
+  "edits": [
+   [
+    "::footnote-call { content: \"**\";",
+    "::footnote-call { content: counter(footnote);"
+   ]
+  ],
+  "note": "call counter"
+ },
+ {
+  "test": "footnotes/footnote-call-marker-custom-001",
+  "target": "test",
+  "edits": [
+   [
+    "::footnote-marker { content: \"** \";",
+    "::footnote-marker { content: counter(footnote) \" \";"
+   ]
+  ],
+  "note": "marker counter"
+ },
+ {
+  "test": "footnotes/footnote-counter-reset-page-001",
+  "target": "test",
+  "edits": [
+   [
+    "@page { counter-reset: footnote; }",
+    "@page { counter-reset: none; }"
+   ]
+  ],
+  "note": "reset removed incl. UA"
+ },
+ {
+  "test": "footnotes/footnote-display-inline-001",
+  "target": "test",
+  "edits": [
+   [
+    "footnote-display: inline",
+    "footnote-display: block"
+   ]
+  ],
+  "note": "block"
+ },
+ {
+  "test": "footnotes/footnote-styled-body-001",
+  "target": "test",
+  "edits": [
+   [
+    "A<span style=\"color: green\">B</span></span>",
+    "A<span>B</span></span>"
+   ]
+  ],
+  "note": "style lost"
+ },
+ {
+  "test": "footnotes/footnote-call-marker-custom-001",
+  "target": "test",
+  "edits": [
+   [
+    "::footnote-marker::after { content: none; }",
+    "::footnote-marker::after { content: \". \"; }"
+   ]
+  ],
+  "note": "Appendix B marker suffix"
+ },
+ {
+  "test": "leaders/leader-dotted-001",
+  "target": "test",
+  "edits": [
+   [
+    "leader(dotted)",
+    "leader(\". \")"
+   ]
+  ],
+  "note": "2011 dotted"
+ },
+ {
+  "test": "leaders/leader-line-edge-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<p>ABC&nbsp;X&nbsp;X&nbsp;X&nbsp;5</p>",
+    "<p>ABC&nbsp;&nbsp;X&nbsp;X&nbsp;X5</p>"
+   ]
+  ],
+  "note": "row from leader end"
+ },
+ {
+  "test": "leaders/leader-per-line-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<p>A.........5</p>",
+    "<p>A......&nbsp;&nbsp;&nbsp;5</p>"
+   ]
+  ],
+  "note": "same leader length on both lines"
+ },
+ {
+  "test": "leaders/leader-space-001",
+  "target": "test",
+  "edits": [
+   [
+    ".l::after { content: leader(space); }",
+    ".l::after { content: none; }"
+   ]
+  ],
+  "note": "no leader"
+ },
+ {
+  "test": "leaders/leader-wrap-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<p>ABCDEFGHIJ</p><p>.........KL</p>",
+    "<p>ABCDEFGHIJ.</p><p>KL</p>"
+   ]
+  ],
+  "note": "leader stays on line 1"
+ },
+ {
+  "test": "xref/target-counter-custom-001-roman",
+  "target": "test",
+  "edits": [
+   [
+    "<h2>A</h2>\n<h2 id=\"t\">B</h2>",
+    "<h2 id=\"t\">A</h2>\n<h2>B</h2>"
+   ]
+  ],
+  "note": "target on first h2 (expects ii -> i)"
+ },
+ {
+  "test": "xref/target-counter-page-001-roman",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"iii\"; }",
+    "a::after { content: \"i\"; }"
+   ]
+  ],
+  "note": "page of link"
+ },
+ {
+  "test": "xref/target-counter-page-002-roman",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"iii\"; }",
+    "a::after { content: \"i\"; }"
+   ]
+  ],
+  "note": "page of link"
+ },
+ {
+  "test": "xref/target-counter-page-counter-reset-001",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"x\"; }",
+    "a::after { content: \"iii\"; }"
+   ]
+  ],
+  "note": "sheet index"
+ },
+ {
+  "test": "xref/target-counter-page-counter-reset-001",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"x\"; }",
+    "a::after { content: \"ix\"; }"
+   ]
+  ],
+  "note": "no increment on first sheet"
+ },
+ {
+  "test": "xref/target-counter-page-footnote-001",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"ii\"; }",
+    "a::after { content: \"i\"; }"
+   ]
+  ],
+  "note": "page before footnote placement"
+ },
+ {
+  "test": "xref/target-counter-page-forward-back-001-roman",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"iii\"; }\n#t a::after { content: \"i\"; }",
+    "a::after { content: \"i\"; }\n#t a::after { content: \"iii\"; }"
+   ]
+  ],
+  "note": "swapped"
+ },
+ {
+  "test": "xref/target-counter-url-001-roman",
+  "target": "test",
+  "edits": [
+   [
+    "url(#t)",
+    "url(#nope)"
+   ]
+  ],
+  "note": "missing target"
+ },
+ {
+  "test": "xref/target-text-001",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"TTT\"; }",
+    "a::after { content: \"T\"; }"
+   ]
+  ],
+  "note": "first letter"
+ },
+ {
+  "test": "xref/target-text-before-001",
+  "target": "test",
+  "edits": [
+   [
+    "target-text(attr(href url), before)",
+    "target-text(attr(href url), after)"
+   ]
+  ],
+  "note": "after for before"
+ },
+ {
+  "test": "page/named-page-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">X</div><div class=\"area\"><p>C</p>",
+    "<div class=\"hdr\">XXX</div><div class=\"area\"><p>C</p>"
+   ]
+  ],
+  "note": "sticky"
+ },
+ {
+  "test": "page/page-counter-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"ftr\">i</div>",
+    "<div class=\"ftr\">0</div>"
+   ],
+   [
+    "<div class=\"ftr\">ii</div>",
+    "<div class=\"ftr\">i</div>"
+   ],
+   [
+    "<div class=\"ftr\">iii</div>",
+    "<div class=\"ftr\">ii</div>"
+   ]
+  ],
+  "note": "from0"
+ },
+ {
+  "test": "page/page-counter-reset-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"ftr\">viii</div>",
+    "<div class=\"ftr\">vii</div>"
+   ],
+   [
+    "<div class=\"ftr\">ix</div>",
+    "<div class=\"ftr\">viii</div>"
+   ],
+   [
+    "<div class=\"ftr\">x</div>",
+    "<div class=\"ftr\">ix</div>"
+   ]
+  ],
+  "note": "from7"
+ },
+ {
+  "test": "page/margin-box-text-align-default-001",
+  "target": "test",
+  "edits": [
+   [
+    "@top-left { content: \"X\"; vertical-align: top; width: 60px; }",
+    "@top-left { content: \"X\"; vertical-align: top; width: 60px; text-align: center; }"
+   ]
+  ],
+  "note": "tl-center"
+ },
+ {
+  "test": "page/margin-box-text-align-default-001",
+  "target": "test",
+  "edits": [
+   [
+    "@top-right { content: \"X\"; vertical-align: top; width: 60px; }",
+    "@top-right { content: \"X\"; vertical-align: top; width: 60px; text-align: left; }"
+   ]
+  ],
+  "note": "tr-left"
+ },
+ {
+  "test": "strings/string-set-concat-001",
+  "target": "reference",
+  "edits": [
+   [
+    ">NN A</div>",
+    ">A NN</div>"
+   ]
+  ],
+  "note": "reversed"
+ },
+ {
+  "test": "strings/string-set-multiple-001",
+  "target": "reference",
+  "edits": [
+   [
+    ">A TT</div>",
+    ">TT A</div>"
+   ]
+  ],
+  "note": "swapped"
+ },
+ {
+  "test": "strings/string-set-page-counter-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">ii</div><div class=\"area\"><p>C</p>",
+    "<div class=\"hdr\">iii</div><div class=\"area\"><p>C</p>"
+   ]
+  ],
+  "note": "atuse"
+ },
+ {
+  "test": "strings/string-set-per-page-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">BB</div>",
+    "<div class=\"hdr\">A</div>"
+   ]
+  ],
+  "note": "sticky"
+ },
+ {
+  "test": "strings/string-start-first-element-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">BB</div><div class=\"area\"><h1>BB</h1>",
+    "<div class=\"hdr\">A</div><div class=\"area\"><h1>BB</h1>"
+   ]
+  ],
+  "note": "entry"
+ },
+ {
+  "test": "xref/target-counters-001-roman",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"i ii\"; }",
+    "a::after { content: \"ii i\"; }"
+   ]
+  ],
+  "note": "reversed"
+ },
+ {
+  "test": "xref/target-counters-001-roman",
+  "target": "reference",
+  "edits": [
+   [
+    "a::after { content: \"i ii\"; }",
+    "a::after { content: \"i,ii\"; }"
+   ]
+  ],
+  "note": "comma"
+ },
+ {
+  "test": "footnotes/footnote-multiple-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<p>A</p><p>BBB</p>",
+    "<p>BBB</p><p>A</p>"
+   ]
+  ],
+  "note": "reversed"
+ },
+ {
+  "test": "page/page-counter-reset-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"ftr\">ix</div>",
+    "<div class=\"ftr\">viii</div>"
+   ],
+   [
+    "<div class=\"ftr\">x</div>",
+    "<div class=\"ftr\">ix</div>"
+   ]
+  ],
+  "note": "resetlater"
+ },
+ {
+  "test": "strings/string-set-basic-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">A</div><div class=\"area\"><p>B</p>",
+    "<div class=\"hdr\"></div><div class=\"area\"><p>B</p>"
+   ],
+   [
+    "<div class=\"hdr\">A</div><div class=\"area\"><p>C</p>",
+    "<div class=\"hdr\"></div><div class=\"area\"><p>C</p>"
+   ]
+  ],
+  "note": "nopersist"
+ },
+ {
+  "test": "strings/string-set-content-before-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">P</div>",
+    "<div class=\"hdr\">PAB</div>"
+   ]
+  ],
+  "note": "beforeandtext"
+ },
+ {
+  "test": "strings/string-set-content-text-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">AB</div>",
+    "<div class=\"hdr\">A</div>"
+   ]
+  ],
+  "note": "firstletter"
+ },
+ {
+  "test": "strings/string-set-counter-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">i</div>",
+    "<div class=\"hdr\">iii</div>"
+   ],
+   [
+    "<div class=\"hdr\">ii</div>",
+    "<div class=\"hdr\">iii</div>"
+   ]
+  ],
+  "note": "atuse"
+ },
+ {
+  "test": "strings/string-set-nested-text-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\">AB</div>",
+    "<div class=\"hdr\">A</div>"
+   ]
+  ],
+  "note": "direct"
+ },
+ {
+  "test": "strings/string-unset-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\"></div><div class=\"area\"><p>A</p>",
+    "<div class=\"hdr\">B</div><div class=\"area\"><p>A</p>"
+   ]
+  ],
+  "note": "lookahead"
+ },
+ {
+  "test": "running/running-element-later-page-001",
+  "target": "reference",
+  "edits": [
+   [
+    "<div class=\"hdr\"></div><div class=\"area\"><p>A</p>",
+    "<div class=\"hdr\">H</div><div class=\"area\"><p>A</p>"
+   ]
+  ],
+  "note": "lookahead"
+ }
+]

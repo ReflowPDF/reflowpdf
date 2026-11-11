@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: without a reset the footnote counter continues across pages</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#footnote-counters">
+<link rel="match" href="footnote-counter-continues-001-ref.html">
+<meta name="assert" content="The footnote counter is incremented for each footnote in document order: the footnote on page 2 is number 2. The numbers are lower-roman, so that the right value (ii) and a reset value (i) differ in length: in Ahem every digit is the same square. The footnote marker is suppressed (content: none), so that the test does not depend on where an engine places it.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.fn { float: footnote; }
+::footnote-call { content: counter(footnote, lower-roman); vertical-align: baseline; font-size: 100%; line-height: inherit; font-variant-position: normal; }
+::footnote-marker { content: none; }
+::footnote-marker::after { content: none; }
+@page { @footnote { margin: 0; padding: 0; border: none; } }
+@page { counter-reset: none; }
+</style>
+<p>X<span class="fn">A</span></p>
+<p class="pb">Y<span class="fn">B</span></p>

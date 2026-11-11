@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: the running head follows the h1 of each page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#using-named-strings">
+<link rel="match" href="string-set-per-page-001-ref.html">
+<meta name="assert" content="Each page holds one h1, and string(hdr) shows that page's h1 text: A, BB, CCC. The values differ in length: in Ahem every letter is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+h1 { string-set: hdr content(); }
+@page { @top-center { content: string(hdr); } }
+</style>
+<h1>A</h1>
+<h1 class="pb">BB</h1>
+<h1 class="pb">CCC</h1>

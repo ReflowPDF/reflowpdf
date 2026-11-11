@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: two leaders on one line share its free space equally</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#leaders">
+<link rel="match" href="leader-two-001-ref.html">
+<meta name="assert" content="css-content-3 §5.2 rule 2: a leader is as long as possible. The specification does not say how two leaders on one line share the free space; this test expects the equal split: on an 11em line with three 1em words, the 8em of free space goes 4em to each leader, so B starts at 6em and C ends at the end edge. leader(space) keeps the words visible: in Ahem a dot is a full square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.l::after { content: leader(space); }
+</style>
+<p>A<span class="l"></span>B<span class="l"></span>C</p>

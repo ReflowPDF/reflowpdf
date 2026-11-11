@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: the four corner margin boxes sit in the page corners</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#margin-boxes">
+<link rel="match" href="margin-box-corners-001-ref.html">
+<meta name="assert" content="top-left-corner, top-right-corner, bottom-left-corner and bottom-right-corner boxes occupy the corners of the page margin; with explicit alignment the glyph sits at the outer corner.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page {
+       @top-left-corner { content: "X"; text-align: left; vertical-align: top; }
+       @top-right-corner { content: "X"; text-align: right; vertical-align: top; }
+       @bottom-left-corner { content: "X"; text-align: left; vertical-align: bottom; }
+       @bottom-right-corner { content: "X"; text-align: right; vertical-align: bottom; }
+     }
+</style>
+<p>M</p>

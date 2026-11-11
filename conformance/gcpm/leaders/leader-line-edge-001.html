@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: the row of leader copies starts at the line's end edge, not at the leader's own end</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#leader-alignment">
+<link rel="match" href="leader-line-edge-001-ref.html">
+<meta name="assert" content="css-content-3 §5.3 step 2: the leader string copies are drawn as a row from the end edge of the line to its start edge, and the before and after content are drawn over them (step 3). With the pattern &quot; X&quot; the only visible glyph of the copy at the line's end, its X, is covered by the after content on both lines (&quot;5&quot; and &quot;55&quot;), so the result does not depend on whether a covered copy is hidden whole or glyph by glyph; the X glyphs stand in columns 5, 7 and 9 on both lines. A row laid from the leader's own end edge, or from the line's start edge, puts them one column off those columns.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+p, span { margin: 0; padding: 0; font: inherit; }
+.l::after { content: leader(" X"); }
+</style>
+<p>ABC<span class="l"></span>5</p>
+<p>ABC<span class="l"></span>55</p>

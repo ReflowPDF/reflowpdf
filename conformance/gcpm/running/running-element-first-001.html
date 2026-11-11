@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS GCPM Test: element(name) defaults to the first running element of the page</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-gcpm/#running-elements">
+<link rel="match" href="running-element-first-001-ref.html">
+<meta name="assert" content="css-gcpm-3 §1.2.2: two running elements on one page, H and KKK; element(hdr), whose default is first, shows the first one, H. The values differ in length: in Ahem every letter is the same square.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.hdr { position: running(hdr); text-align: center; }
+@page { @top-center { content: element(hdr); } }
+</style>
+<div class="hdr">H</div>
+<p>A</p>
+<div class="hdr">KKK</div>
+<p>B</p>

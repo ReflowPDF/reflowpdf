@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Reference: the row of leader copies starts at the line's end edge, not at the leader's own end</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+p { margin: 0; padding: 0; font: inherit; }
+</style>
+<p>ABC&nbsp;X&nbsp;X&nbsp;X&nbsp;5</p>
+<p>ABC&nbsp;X&nbsp;X&nbsp;X55</p>

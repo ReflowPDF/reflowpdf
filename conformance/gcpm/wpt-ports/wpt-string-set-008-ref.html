@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reference: CSS Test: GCPM string-set with multiple assignments</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="http://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro">
+<meta name="flags" content="paged">
+<meta name="assert" content="Test checks that several named string can be set on a single element">
+<style>
+@page { size: 8.5in 11in; } /* ReflowPDF port: page size fixed to Letter, so the page count does not depend on the default page size */
+@page { @top-center { content: "C"; } @top-left { content: "Chapter Title"; } @top-right { content: "Chapter Title"; } }
+
+  
+
+ h1 {
+ }
+
+</style>
+</head>
+<body>
+<h1>Chapter Title</h1>
+<p>Test passes if “Chapter Title” appears in both the left and right running heads, and “C” appears in the center running head.</p>
+</body>
+</html>

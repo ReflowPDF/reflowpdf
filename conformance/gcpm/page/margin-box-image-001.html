@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Paged Media Test: content: url() in a margin box renders the picture at its natural size beside the text</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#populating-margin-boxes">
+<link rel="match" href="margin-box-image-001-ref.html">
+<meta name="assert" content="css-page-3 §5.2 and css-content-3 §2: an image value in a margin box's content is an inline replaced box at its natural size (a 40×20 CSS-pixel PNG; its one-pixel white frame keeps a clip at the image edge from showing), laid out inline with the text: one text cell, the picture, one text cell, left-aligned in the top-left box.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span, i, img { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+@page { @top-left { content: "A" url(green-40x20-edge.png) "B"; vertical-align: bottom; } }
+</style>
+<p>M</p>

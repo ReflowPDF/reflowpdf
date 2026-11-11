@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: leader(dotted) fills the line between the start and end content</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#leader-function">
+<link rel="match" href="leader-dotted-001-ref.html">
+<meta name="assert" content="css-content-3 §5.1: dotted is equivalent to leader(&quot;.&quot;). On an 11-cell line, AB, the leader and 5 leave eight cells, which the leader fills with eight dots. The font is GCPM Leaders, Ahem with a visible dot and underscore (in Ahem both are full squares).">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<link rel="stylesheet" href="../support/leaders.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 "GCPM Leaders"; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.l::after { content: leader(dotted); }
+</style>
+<p>AB<span class="l"></span>5</p>

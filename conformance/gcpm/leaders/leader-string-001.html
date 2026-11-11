@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Generated Content Test: leader(<string>) repeats the given string</title>
+<link rel="author" title="ReflowPDF" href="https://reflowpdf.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#leader-function">
+<link rel="match" href="leader-string-001-ref.html">
+<meta name="assert" content="css-content-3 §5.1: leader() with a string repeats that string: on an 11-cell line, AB, the leader and 5 leave eight cells, filled with eight copies of p. In Ahem p is drawn as a bar in the descender area, unlike the full squares of other letters and of the dot, so a dotted or solid leader would not match.">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+@page { size: 300px 200px; margin: 40px; font: 20px/1 Ahem; }
+html, body { margin: 0; padding: 0; }
+body { font: 20px/1 Ahem; color: black; }
+h1, h2, p, div, ol, ul, li, span { margin: 0; padding: 0; font: inherit; }
+.pb { break-before: page; }
+.l::after { content: leader("p"); }
+</style>
+<p>AB<span class="l"></span>5</p>
