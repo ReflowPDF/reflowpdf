@@ -46,6 +46,9 @@ from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 VIEWPORT = "@page { size: 600pt 450pt; margin: 0 }\n"
+# The API's own default style sheet lets long words break anywhere (overflow-wrap: anywhere, and break-word in
+# table cells), so that they do not run off the paper. The tests assume the initial value, normal.
+API_DEFAULTS = ":root { overflow-wrap: normal }\ntd, th { overflow-wrap: normal }\n"
 API = "https://api.reflowpdf.com/v1/pdf"
 TIMEOUT = 120
 SKIP_FLAGS = ("interact", "animated", "http", "userstyle", "scroll")
@@ -258,7 +261,7 @@ class Runner:
         if self.api:
             body = {"html": resolver.document(text, here).encode("latin-1").decode(charset(text), errors="replace"),
                     "filename": "test.pdf", "options": {
-                        **({"input_format": "xhtml"} if xhtml else {}), **({} if paged else {"base_css": VIEWPORT})}}
+                        **({"input_format": "xhtml"} if xhtml else {}), "base_css": API_DEFAULTS + ("" if paged else VIEWPORT)}}
             self.call_api(body, pdf)
             return
         if xhtml:  # an HTML parser would leave <div/> open: the rest of the document would nest in it
