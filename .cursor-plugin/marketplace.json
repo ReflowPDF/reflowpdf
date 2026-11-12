@@ -1,0 +1,18 @@
+{
+  "name": "reflowpdf",
+  "owner": {
+    "name": "INSEAW LLC",
+    "email": "hello@reflowpdf.com"
+  },
+  "metadata": {
+    "description": "ReflowPDF for Cursor: paged PDFs from HTML or templates, with an edit link to the ReflowPDF editor.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "reflowpdf",
+      "source": "./mcp",
+      "description": "Paged PDFs from HTML or templates, with an edit link to the ReflowPDF editor."
+    }
+  ]
+}

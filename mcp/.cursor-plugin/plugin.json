@@ -1,0 +1,18 @@
+{
+  "name": "reflowpdf",
+  "displayName": "ReflowPDF",
+  "version": "1.0.0",
+  "description": "Print HTML and CSS, or ready document templates, as paged PDFs: page numbers, headers and footers, tables of contents, tables across pages, tagged PDF/UA. Every document gets an edit link to the ReflowPDF editor.",
+  "author": {
+    "name": "INSEAW LLC",
+    "email": "hello@reflowpdf.com",
+    "url": "https://reflowpdf.com"
+  },
+  "homepage": "https://reflowpdf.com/mcp",
+  "repository": "https://github.com/ReflowPDF/reflowpdf",
+  "license": "MIT",
+  "keywords": ["pdf", "html-to-pdf", "print-css", "documents", "invoice", "report", "templates", "pdf-ua", "accessibility", "mcp"],
+  "logo": "assets/logo.png",
+  "skills": "skills/",
+  "mcpServers": "cursor.mcp.json"
+}
